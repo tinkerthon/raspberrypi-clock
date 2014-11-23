@@ -37,7 +37,7 @@ class item:
         screen.blit(self.newimg,(self.newrect.left, self.newrect.top))
 
 #setup screen size and background image
-size = width, height = 200, 244
+size = width, height = 320, 240
 screen = pygame.display.set_mode(size)
 pygame.init()
 
