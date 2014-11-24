@@ -32,7 +32,12 @@
     </canvas>
  
     <script>
+    document.addEventListener('DOMContentLoaded', displayTime);
  
+    function displayTime() {
+        // Just to test if the JavaScript gets loaded in properly. You can remove this later!
+        document.querySelector("#current-time").innerHTML = "JavaScript is working, now get to coding!";
+    } 
     </script>
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
