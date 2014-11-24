@@ -40,7 +40,9 @@
         var h = now.getHours();
         var m = now.getMinutes();
         var s = now.getSeconds();
-        document.querySelector("#current-time").innerHTML = now.toString();
+
+        var timeString = String(h) + ":" + String(m) + ":" + String(s);
+        document.querySelector("#current-time").innerHTML = timeString;
     } 
     </script>
     <script src="js/jquery.min.js"></script>
