@@ -121,8 +121,8 @@
                 $('#menu a').removeClass('active');
                 $(this).addClass('active');
 
-                $('section').hide();
-                $(href).fadeIn('fast');
+                $('section').addClass('hidden');
+                $(href).removeClass('hidden');
 
                 e.preventDefault();
             });
