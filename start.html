@@ -32,8 +32,13 @@
     </canvas>
  
     <script>
-    document.addEventListener('DOMContentLoaded', displayTime);
- 
+    document.addEventListener('DOMContentLoaded', startTimer);
+     
+    function startTimer() {
+        setInterval(displayTime, 1000);
+        displayTime();
+    } 
+
     function padZero(num) {
         if (num < 10) { 
             return "0" + String(num);
