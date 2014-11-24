@@ -111,6 +111,10 @@
             
             $('#menu').on('click', 'a', function (e) {
                 var href = $(this).attr('href');
+                
+                if (href.match(/^javascript:/)) {
+                    return;
+                }
 
                 $('#menu a').removeClass('active');
                 $(this).addClass('active');
