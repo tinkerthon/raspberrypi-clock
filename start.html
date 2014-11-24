@@ -98,6 +98,7 @@
 
     <script>
         jQuery(function () {
+            // every 1s
             setInterval(function () {
                 var d = new Date,
                     hour = d.getHours(),
@@ -110,6 +111,7 @@
                 );
             }, 1000);
             
+            // every 5m
             setInterval(function () {
                 $('#message').load('https://decoupled.de/lena.php');
             }, 300000);
