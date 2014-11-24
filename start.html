@@ -5,20 +5,40 @@
     <title>Lenas Uhr</title>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <style>
-    
+    body {
+        border: solid 1px #EEE;
+        width: 320px;
+        height: 240px;
+    }
+    #menu {
+        padding: 10px 0;
+        list-style-type: none;
+        float: right;
+        background-color: #EEE;
+        border-left: solid 1px red;
+        height: 240px;
+    }
+    #menu li {
+        margin: 0 10px;
+    }
+    #clockid {
+        margin: 10px 40px;
+    }
     </style>
     <script src="js/jquery.min.js"></script>
     <script src="clock/coolclock.js"></script>
     <script src="clock/moreskins.js"></script>
   </head>
   <body>
-    <h1>Lenas Uhr</h1>
-    
-    <ul>
-      <li><a href="javascript:reload()">Neu</a></li>
+    <ul id="menu">
+      <li>
+          <a href="javascript:location.reload()">
+              <i class="glyphicon glyphicon-repeat"></i>
+          </a>
+      </li>
     </ul>
     
-    <canvas id="clockid" class="CoolClock:swissRail:85"></canvas>
+    <canvas id="clockid" class="CoolClock:swissRail:100"></canvas>
     
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
