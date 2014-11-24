@@ -50,18 +50,19 @@
         display: none;
     }
     
-    form div {
-        white-space: nowrap;
-        margin: auto;        
+    form {
+        font-size: 3em;
+        padding: 30px;
     }
     
     input[type="number"] {
-        font-size: 3em;
         width: 2em;
     }
     
     button {
         display: block;
+        float: right;
+        margin: 10px 30px;
     }
     
     </style>
@@ -102,9 +103,7 @@
     <section id="alarm" class="hidden">
         <p>Wecker</p>
         <form role="form">
-            <div>
-                <input class="form-control" type="number"> : <input class="form-control" type="number">
-            </div>
+            <input type="number"> : <input type="number">
 
             <button type="submit">OK</button>
         </form>
