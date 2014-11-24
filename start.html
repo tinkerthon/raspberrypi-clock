@@ -55,14 +55,12 @@
         jQuery(function () {
             var d = new Date,
                 hour = d.getHours(),
-                min = d.getMinutes(),
-                sec = d.getSeconds();
+                min = d.getMinutes();
 
             setInterval(function () {
                 $('#time').text(
                     (hour < 10 ? '0' : '') + String(hour)
                     + ':' + (min < 10 ? '0' : '') + String(min)
-                    + ':' + (sec < 10 ? '0' : '') + String(sec)
                 );
             }, 1000);
         });
