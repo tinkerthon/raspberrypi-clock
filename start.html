@@ -50,7 +50,7 @@
         var m = now.getMinutes();
         var s = now.getSeconds();
 
-        var timeString = String(h) + ":" + String(m) + ":" + String(s);
+        var timeString = String(h) + ":" + padZero(m) + ":" + padZero(s);
         document.querySelector("#current-time").innerHTML = timeString;
     } 
     </script>
