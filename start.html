@@ -35,8 +35,12 @@
     document.addEventListener('DOMContentLoaded', displayTime);
  
     function displayTime() {
-        // Just to test if the JavaScript gets loaded in properly. You can remove this later!
-        document.querySelector("#current-time").innerHTML = "JavaScript is working, now get to coding!";
+        var now = new Date();
+        var now = new Date();
+        var h = now.getHours();
+        var m = now.getMinutes();
+        var s = now.getSeconds();
+        document.querySelector("#current-time").innerHTML = now.toString();
     } 
     </script>
     <script src="js/jquery.min.js"></script>
