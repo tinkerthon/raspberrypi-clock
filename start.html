@@ -65,7 +65,16 @@
         var clockX = canvas.width / 2;
         var clockY = canvas.height / 2;
          
-        // <-- Put math here later 
+        // Make sure TAU is defined (it's not by default)
+        Math.TAU = 2 * Math.PI;
+         
+        var hArmRadians = Math.TAU * (h / 12);
+        var hArmLength = clockRadius;
+         
+        // If we start from the center of the clock, 
+        //  this is where the x and y value the other end of the arm should point to
+        var targetX = clockX + Math.cos(hArmRadians - (Math.TAU/4)) * hArmLength;
+        var targetY = clockY + Math.sin(hArmRadians - (Math.TAU/4)) * hArmLength;
          
         // The line should be 10 pixels thick, and red
         context.lineWidth = 10;
@@ -75,6 +84,17 @@
         context.moveTo(clockX, clockY); // Start at the center
         context.lineTo(clockX + clockRadius, clockY); // Draw a to the right
         context.stroke();
+        
+        // The line should be 5 pixels thick, and black
+        context.lineWidth = 5;
+        context.strokeStyle = '#000000';
+         
+        context.beginPath();
+        context.moveTo(clockX, clockY); // Start at the center
+        context.lineTo(clockX, clockY - clockRadius); // Draw a line upwards
+        context.stroke();
+        
+        
     } 
     </script>
     <script src="js/jquery.min.js"></script>
