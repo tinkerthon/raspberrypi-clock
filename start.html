@@ -42,11 +42,18 @@
           </a>
       </li>
     </ul>
-    <div id="time"></div>
+    <div id="time">Uhrzeit</div>
     
     <canvas id="clockid" class="CoolClock:swissRail:100"></canvas>
     
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script>
+        jQuery(function () {
+            setInterval(function () {
+                $('#time').text($.format.date(new Date(), 'HH:MM:SS'));
+            }, 1000);
+        });
+    </script>
+
     <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
