@@ -52,6 +52,29 @@
 
         var timeString = String(h) + ":" + padZero(m) + ":" + padZero(s);
         document.querySelector("#current-time").innerHTML = timeString;
+        
+        // --- Analog clock ---//
+        var canvas = document.querySelector("#clock");
+        var context = canvas.getContext("2d");
+         
+        // You can change this to make the clock as big or small as you want.
+        // Just remember to adjust the canvas size if necessary.
+        var clockRadius = 100;
+         
+        // Make sure the clock is centered in the canvas
+        var clockX = canvas.width / 2;
+        var clockY = canvas.height / 2;
+         
+        // <-- Put math here later 
+         
+        // The line should be 10 pixels thick, and red
+        context.lineWidth = 10;
+        context.strokeStyle = '#DD0000';
+         
+        context.beginPath();
+        context.moveTo(clockX, clockY); // Start at the center
+        context.lineTo(clockX + clockRadius, clockY); // Draw a to the right
+        context.stroke();
     } 
     </script>
     <script src="js/jquery.min.js"></script>
