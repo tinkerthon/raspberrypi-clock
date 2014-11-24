@@ -67,23 +67,21 @@
         // Make sure TAU is defined (it's not by default)
         Math.TAU = 2 * Math.PI;
          
-        function drawArm(progress) {
+        function drawArm(progress, armThickness, armLength, armColor) {
             var armRadians = (Math.TAU * progress) - (Math.TAU/4);
-            var armLength = clockRadius;
+            var targetX = clockX + Math.cos(armRadians) * (armLength * clockRadius);
+            var targetY = clockY + Math.sin(armRadians) * (armLength * clockRadius);
          
-            var targetX = clockX + Math.cos(armRadians) * armLength;
-            var targetY = clockY + Math.sin(armRadians) * armLength;
-         
-            context.lineWidth = 10;
-            context.strokeStyle = '#DD0000'; // RED
+            context.lineWidth = armThickness;
+            context.strokeStyle = armColor;
          
             context.beginPath();
             context.moveTo(clockX, clockY); // Start at the center
             context.lineTo(targetX, targetY); // Draw a line outwards
             context.stroke();
-        }
-         
-        drawArm(h / 12); // Hour
+        }         
+
+drawArm(h / 12); // Hour
         drawArm(m / 60); // Minute
         drawArm(s / 60); // Second
     }
