@@ -104,6 +104,10 @@
             setInterval(function () {
                 $('#message').load('https://decoupled.de/lena.txt');
             }, 60000);
+            
+            $('#menu').on('click', 'a', function (e) {
+                e.preventDefault();
+            });
         });
     </script>
 
