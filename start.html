@@ -45,14 +45,13 @@
 
     function displayTime() {
         var now = new Date();
-        var now = new Date();
         var h = now.getHours();
         var m = now.getMinutes();
         var s = now.getSeconds();
-
-        var timeString = String(h) + ":" + padZero(m) + ":" + padZero(s);
+         
+        var timeString = formatHour(h) + ":" + padZero(m) + ":" + padZero(s) + " " + getTimePeriod(h);
         document.querySelector("#current-time").innerHTML = timeString;
-        
+         
         // --- Analog clock ---//
         var canvas = document.querySelector("#clock");
         var context = canvas.getContext("2d");
@@ -68,34 +67,26 @@
         // Make sure TAU is defined (it's not by default)
         Math.TAU = 2 * Math.PI;
          
-        var hArmRadians = Math.TAU * (h / 12);
-        var hArmLength = clockRadius;
+        function drawArm(progress) {
+            var armRadians = (Math.TAU * progress) - (Math.TAU/4);
+            var armLength = clockRadius;
          
-        // If we start from the center of the clock, 
-        //  this is where the x and y value the other end of the arm should point to
-        var targetX = clockX + Math.cos(hArmRadians - (Math.TAU/4)) * hArmLength;
-        var targetY = clockY + Math.sin(hArmRadians - (Math.TAU/4)) * hArmLength;
+            var targetX = clockX + Math.cos(armRadians) * armLength;
+            var targetY = clockY + Math.sin(armRadians) * armLength;
          
-        // The line should be 10 pixels thick, and red
-        context.lineWidth = 10;
-        context.strokeStyle = '#DD0000';
+            context.lineWidth = 10;
+            context.strokeStyle = '#DD0000'; // RED
          
-        context.beginPath();
-        context.moveTo(clockX, clockY); // Start at the center
-        context.lineTo(targetX, targetY); // Draw a line outwards
-        context.stroke();
-        
-        // The line should be 5 pixels thick, and black
-        context.lineWidth = 5;
-        context.strokeStyle = '#000000';
+            context.beginPath();
+            context.moveTo(clockX, clockY); // Start at the center
+            context.lineTo(targetX, targetY); // Draw a line outwards
+            context.stroke();
+        }
          
-        context.beginPath();
-        context.moveTo(clockX, clockY); // Start at the center
-        context.lineTo(clockX, clockY - clockRadius); // Draw a line upwards
-        context.stroke();
-        
-        
-    } 
+        drawArm(h / 12); // Hour
+        drawArm(m / 60); // Minute
+        drawArm(s / 60); // Second
+    }
     </script>
     <script src="js/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
