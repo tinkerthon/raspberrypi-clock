@@ -53,9 +53,10 @@
     
     <script>
         jQuery(function () {
-            var hour = d.getHours();
-            var min = d.getMinutes();
-            var sec = d.getSeconds();
+            var d = new Date,
+                hour = d.getHours(),
+                min = d.getMinutes(),
+                sec = d.getSeconds();
 
             setInterval(function () {
                 $('#time').text($.format.date(new Date(), 'HH:MM:SS'));
