@@ -86,7 +86,10 @@
     </section>
 
     <section id="alarm" class="hidden">
-        Alarm
+        <h1>Wecker</h1>
+        <form>
+            
+        </form>
     </section>
     
     <section id="music" class="hidden">
@@ -109,7 +112,7 @@
             
             setInterval(function () {
                 $('#message').load('https://decoupled.de/lena.php');
-            }, 60000);
+            }, 120000);
             
             $('#menu').on('click', 'a', function (e) {
                 var href = $(this).attr('href');
