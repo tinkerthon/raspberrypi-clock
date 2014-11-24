@@ -34,6 +34,15 @@
     <script>
     document.addEventListener('DOMContentLoaded', displayTime);
  
+    function padZero(num) {
+        if (num < 10) { 
+            return "0" + String(num);
+        }
+        else {
+            return String(num);
+        }
+    }
+
     function displayTime() {
         var now = new Date();
         var now = new Date();
