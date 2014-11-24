@@ -51,6 +51,8 @@
     
     <canvas id="clockid" class="CoolClock:swissRail:100"></canvas>
     
+    <div id="message"></div>
+    
     <script>
         jQuery(function () {
             setInterval(function () {
@@ -64,6 +66,10 @@
                     + ' Uhr'
                 );
             }, 1000);
+            
+            setInterval(function () {
+                $('#message').load('http://olav.net/lena.txt')
+            }, 60000);
         });
     </script>
 
