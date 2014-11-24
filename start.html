@@ -107,7 +107,10 @@
             
             $('#menu').on('click', 'a', function (e) {
                 var href = $(this).attr('href');
-                
+
+                $('#menu a').removeClass('active');
+                $(this).addClass('active');
+
                 e.preventDefault();
                 $('section').hide();
                 $(href).fadeIn('fast');
