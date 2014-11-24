@@ -53,11 +53,11 @@
     
     <script>
         jQuery(function () {
-            var d = new Date,
-                hour = d.getHours(),
-                min = d.getMinutes();
-
             setInterval(function () {
+                var d = new Date,
+                    hour = d.getHours(),
+                    min = d.getMinutes();
+
                 $('#time').text(
                     (hour < 10 ? '0' : '') + String(hour)
                     + ':' + (min < 10 ? '0' : '') + String(min)
