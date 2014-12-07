@@ -19,3 +19,20 @@ block content
         div(id="time") Uhrzeit
         canvas(id="clockid", class="CoolClock:swissRail:100")
         div(id="message")
+
+    <ection(id="alarm", class="hidden")
+        p Wecker
+        form(role="form")
+            div
+                input(type="checkbox") aktiv
+            </div>
+
+            <div>
+                <input type="number"> : <input type="number">
+            </div>
+
+            <div>
+                <button type="submit">OK</button>
+            </div>
+        </form>
+    </section>
