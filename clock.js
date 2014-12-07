@@ -4,7 +4,7 @@
 jQuery(function () {
     // every 1s
     setInterval(function () {
-        var d = new Date,
+        var d = new Date(),
             hour = d.getHours(),
             min = d.getMinutes();
 
