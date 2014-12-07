@@ -1,4 +1,16 @@
 extends clock-layout
 
 block content
-    Lampe
+    ul(id="menu")
+        li
+            a(href="javascript:location.reload()")
+                i(class="glyphicon glyphicon-repeat")
+        li
+            a(href="#clock", class="active")
+                i(class="glyphicon glyphicon-time")
+        li
+            a(href="#alarm")
+                i(class="glyphicon glyphicon-music")
+        li
+            a(href="#music")
+                i(class="glyphicon glyphicon-play")
