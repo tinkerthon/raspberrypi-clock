@@ -38,6 +38,6 @@ exports.index = function(req, res) {
   }
 };
 
-export.edit = function(req, res) {
+export.clock = function(req, res) {
   res.render('blinkstick/edit');  
 };
