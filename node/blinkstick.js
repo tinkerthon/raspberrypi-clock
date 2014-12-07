@@ -37,3 +37,7 @@ exports.index = function(req, res) {
     });
   }
 };
+
+export.edit = function(req, res) {
+    
+};
