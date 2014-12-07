@@ -39,5 +39,5 @@ exports.index = function(req, res) {
 };
 
 export.clock = function(req, res) {
-  res.render('blinkstick/edit');  
+  res.render('blinkstick/clock');  
 };
