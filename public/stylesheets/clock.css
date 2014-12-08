@@ -1,0 +1,97 @@
+/**
+ * clock.css
+ */
+body {
+  background-color: black;
+  color: white;
+  /*border: solid 1px #EEE;*/
+  width: 320px;
+  height: 240px;
+  position: relative;
+}
+#menu {
+    padding: 0;
+    list-style-type: none;
+    float: right;
+    background-color: #EEE;
+    border-left: solid 1px red;
+    height: 230px;
+    font-size: 2em;
+    font-weight: bold;
+}
+#menu li a {
+    padding: 8px 10px;
+    display: block;
+}
+#clockid {
+    margin: 10px 35px;
+}
+#time {
+    position: absolute;
+    top: 0;
+    left: 4px;
+}
+#message {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+}
+
+a, a:visited, a:active {
+    color: red;
+}
+
+a.active {
+    background-color: #CCC;
+}
+
+section.hidden {
+    display: none;
+}
+
+form {
+    font-size: 3em;
+    padding: 0 30px;
+}
+
+input[type="number"] {
+    width: 2em;
+}
+
+.row {
+  margin-left: 20px;
+}
+
+a.color {
+  display: block;
+  border: solid 2px gray;
+  border-radius: 10px;
+  margin-top: 20px;
+  width: 49px;
+  height: 49px;
+}
+
+.color.blue {
+  background-color: blue;
+}
+
+.color.red {
+  background-color: red;
+}
+
+.color.green {
+  background-color: green;
+}
+
+.color.yellow {
+  background-color: yellow;
+}
+
+.color.white {
+  background-color: white;
+}
+
+.color.black {
+  background-color: black;
+}
+
