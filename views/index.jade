@@ -4,36 +4,31 @@ block content
   ul#menu
     li
       a(href="javascript:location.reload()")
-        i(class="glyphicon glyphicon-repeat")
+        i.glyphicon.glyphicon-repeat
     li
       a(href="#clock", class="active")
-        i(class="glyphicon glyphicon-time")
+        i.glyphicon.glyphicon-time
     li
-      a(href="#alarm")
-        i(class="glyphicon glyphicon-music")
+      a(href="#music")
+        i.glyphicon.glyphicon-music
     li
       a(href="#lamp")
-        i(class="glyphicon glyphicon-fire")
+        i.glyphicon.glyphicon-fire
 
   section#clock
     div#time Uhrzeit
     canvas#clockid(class="CoolClock:chunkySwissOnBlack:100")
 
-  section#alarm.hidden
-    p Wecker
-    form(role="form")
-      div
-        input(type="checkbox")
-        | aktiv
-
-      div
-        input(type="number")
-        | :
-        input(type="number")
-
-      div
-        button(type="submit")
-        | OK
+  section#music.hidden
+    .row
+      .col-xs-2
+        a.music.glyphicon.glyphicon-backward(href="#prev")
+      .col-xs-2
+        a.music.glyphicon.glyphicon-stop(href="#stop")
+      .col-xs-2
+        a.music.glyphicon.glyphicon-play(href="#play")
+      .col-xs-2
+        a.music.glyphicon.glyphicon-forward(href="#next")
 
   section#lamp.hidden
     .row

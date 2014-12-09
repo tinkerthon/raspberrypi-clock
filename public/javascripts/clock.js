@@ -44,5 +44,13 @@ jQuery(function () {
         rgb: $(this).attr('href')
       });
     });
+
+    $('a.music').click(function (e) {
+      e.preventDefault();
+      
+      $.get('/music', {
+        op: $(this).attr('href')
+      });
+    });
 });
 

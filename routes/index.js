@@ -1,4 +1,9 @@
+/**
+ * Aufruf mit
+ * env DEBUG=`pwd` BRIGHT=4 PORT=8888 bin/www
+ */
 var blinkstick = require('blinkstick');
+var mpd = require('komponist');
 var express = require('express');
 var router = express.Router();
 
@@ -7,16 +12,32 @@ router.get('/', function(req, res) {
   res.render('index', { title: 'Express' });
 });
 
-function bright(res, led, rgb) {
-  led.morph(rgb, {index: 0}, function () {
-    led.morph(rgb, {index: 2}, function () {
-      led.morph(rgb, {index: 4}, function () {
-        led.morph(rgb, {index: 6}, function () {
-          res.send({ status: 'OK' });    
-        });
-      });
-    });
-  });
+/**
+ * Switch LEDs, one after the other
+ * @param BRIGHT {1, 2, 4, 8}
+ */
+function morph(res, led, rgb) {
+  var
+    i,
+    step = 8 / process.env.BRIGHT,
+    f = function () { res.send({ status: 'OK' }); },
+    
+    /**
+     * Generate a function to morph LED i with callback f
+     */
+    gen = function (i, f) {
+      return function () {
+        console.log("i:", i, "rgb:", rgb); 
+        led.morph(rgb, {index: i-1, duration: 100}, f); 
+      };
+    }; 
+
+  console.log("MORPH", step);
+
+  for (i = step; i <= 8; i += step) {
+    f = gen(i, f);
+  }
+  f();
 }
 
 router.get('/blinkstick', function(req, res) {
@@ -44,13 +65,40 @@ router.get('/blinkstick', function(req, res) {
   }
   else
   if (req.query.op == 'morph') {
-    bright(res, led, req.query.rgb);
+    morph(res, led, req.query.rgb);
   }
   else {
     led.setColor(req.query.op, function () {
       res.send({ status: 'OK' });
     });
   }
+});
+
+router.get('/music', function(req, res) {
+  
+  mpd.createConnection(function(err, client) {
+    if (typeof req.query.op === 'undefined') {
+      res.send({ status: 'ERR' });
+    }
+    else 
+      switch (req.query.op) {
+      case '#prev':
+        client.previous();
+        break;
+      case '#next':
+        client.next();
+        break;
+      case '#play':
+        client.play();
+        break;
+      case '#stop':
+        client.stop();
+        break;
+      }
+  });
+  
+  res.send({ status: 'OK' });
+  
 });
 
 module.exports = router;

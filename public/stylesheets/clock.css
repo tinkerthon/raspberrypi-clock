@@ -10,52 +10,52 @@ body {
   position: relative;
 }
 #menu {
-    padding: 0;
-    list-style-type: none;
-    float: right;
-    background-color: #EEE;
-    border-left: solid 1px red;
-    height: 230px;
-    font-size: 2em;
-    font-weight: bold;
+  padding: 0;
+  list-style-type: none;
+  float: right;
+  background-color: #EEE;
+  border-left: solid 1px red;
+  height: 230px;
+  font-size: 2em;
+  font-weight: bold;
 }
 #menu li a {
-    padding: 8px 10px;
-    display: block;
+  padding: 8px 10px;
+  display: block;
 }
 #clockid {
-    margin: 10px 35px;
+  margin: 10px 35px;
 }
 #time {
-    position: absolute;
-    top: 0;
-    left: 4px;
+  position: absolute;
+  top: 0;
+  left: 4px;
 }
 #message {
-    position: absolute;
-    bottom: 4px;
-    left: 4px;
+  position: absolute;
+  bottom: 4px;
+  left: 4px;
 }
 
 a, a:visited, a:active {
-    color: red;
+  color: red;
 }
 
 a.active {
-    background-color: #CCC;
+  background-color: #CCC;
 }
 
 section.hidden {
-    display: none;
+  display: none;
 }
 
 form {
-    font-size: 3em;
-    padding: 0 30px;
+  font-size: 3em;
+  padding: 0 30px;
 }
 
 input[type="number"] {
-    width: 2em;
+  width: 2em;
 }
 
 .row {
@@ -95,3 +95,6 @@ a.color {
   background-color: black;
 }
 
+.music {
+  font-size: 2em;
+}
