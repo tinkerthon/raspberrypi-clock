@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
 function morph(res, led, rgb) {
   var
     i,
-    step = 8 / process.env.BRIGHT,
+    step = 8 / (process.env.BRIGHT || 4),
     f = function () { res.send({ status: 'OK' }); },
     
     /**
