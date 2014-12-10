@@ -31,7 +31,7 @@ function morph(res, led, rgb) {
   var
     i,
     step = 8 / process.env.BRIGHT,
-    f = function () { res.send({ status: 'OK' }); }:
+    f = function () { res.send({ status: 'OK' }); };
   
   console.log("MORPH", step);
 
