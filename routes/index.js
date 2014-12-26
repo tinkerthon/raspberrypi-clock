@@ -24,7 +24,8 @@ function morph(res, led, rgb) {
   function gen(i, f) {
     return function () {
       console.log("i:", i, "rgb:", rgb);
-      led.morph(rgb, {index: i-1, duration: 100}, f);
+      //led.morph(rgb, {index: i-1, duration: 100}, f);
+      led.setColor(rgb, {index: i-1}, f);
     };
   }
 
@@ -32,7 +33,7 @@ function morph(res, led, rgb) {
     i,
     step = 8 / (process.env.BRIGHT || 4),
     f = function () { res.send({ status: 'OK' }); };
-  
+
   console.log("MORPH", step);
 
   // Create nested callbacks
@@ -77,12 +78,12 @@ router.get('/blinkstick', function(req, res) {
 });
 
 router.get('/music', function(req, res) {
-  
+
   mpd.createConnection(function(err, client) {
     if (typeof req.query.op === 'undefined') {
       res.send({ status: 'ERR' });
     }
-    else 
+    else
       switch (req.query.op) {
       case '#prev':
         client.previous();
@@ -98,9 +99,9 @@ router.get('/music', function(req, res) {
         break;
       }
   });
-  
+
   res.send({ status: 'OK' });
-  
+
 });
 
 module.exports = router;
