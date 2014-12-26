@@ -1,19 +1,22 @@
 extends layout
 
 block content
-  ul#menu
-    li
-      a(href="javascript:location.reload()")
-        i.glyphicon.glyphicon-repeat
-    li
-      a(href="#clock", class="active")
-        i.glyphicon.glyphicon-time
-    li
-      a(href="#music")
-        i.glyphicon.glyphicon-music
-    li
-      a(href="#lamp")
-        i.glyphicon.glyphicon-fire
+  #menu
+    button
+      i.glyphicon.glyphicon-align-justify
+    ul
+      li
+        a(href="javascript:location.reload()")
+          i.glyphicon.glyphicon-repeat
+      li
+        a(href="#clock", class="active")
+          i.glyphicon.glyphicon-time
+      li
+        a(href="#music")
+          i.glyphicon.glyphicon-music
+      li
+        a(href="#lamp")
+          i.glyphicon.glyphicon-fire
 
   section#clock
     div#time Uhrzeit
@@ -32,19 +35,19 @@ block content
 
   section#lamp.hidden
     .row
-      .col-xs-3
+      .col-xs-4
         a.color.blue(href="#0000ff")
-      .col-xs-3
+      .col-xs-4
         a.color.red(href="#ff0000")
-      .col-xs-3
+      .col-xs-4
         a.color.green(href="#00ff00")
-      .col-xs-3
+      .col-xs-4
         a.color.yellow(href="#ffff00")
-      .col-xs-3
+      .col-xs-4
         a.color.white(href="#ffffff")
-      .col-xs-3
+      .col-xs-4
         a.color.black(href="#000000")
-  
+
   #message
-      
+
   script(src="/bootstrap/js/bootstrap.min.js")

@@ -17,23 +17,26 @@ router.get('/', function(req, res) {
  * @param BRIGHT {1, 2, 4, 8}
  */
 function morph(res, led, rgb) {
+
+  /**
+   * Generate a function to morph LED i with callback f
+   */
+  function gen(i, f) {
+    return function () {
+      console.log("i:", i, "rgb:", rgb);
+      //led.morph(rgb, {index: i-1, duration: 100}, f);
+      led.setColor(rgb, {index: i-1}, f);
+    };
+  }
+
   var
     i,
     step = 8 / (process.env.BRIGHT || 8),
-    f = function () { res.send({ status: 'OK' }); },
-    
-    /**
-     * Generate a function to morph LED i with callback f
-     */
-    gen = function (i, f) {
-      return function () {
-        console.log("i:", i, "rgb:", rgb); 
-        led.morph(rgb, {index: i-1, duration: 100}, f); 
-      };
-    }; 
+    f = function () { res.send({ status: 'OK' }); };
 
   console.log("MORPH", step);
 
+  // Create nested callbacks
   for (i = step; i <= 8; i += step) {
     f = gen(i, f);
   }
@@ -75,12 +78,12 @@ router.get('/blinkstick', function(req, res) {
 });
 
 router.get('/music', function(req, res) {
-  
+
   mpd.createConnection(function(err, client) {
     if (typeof req.query.op === 'undefined') {
       res.send({ status: 'ERR' });
     }
-    else 
+    else
       switch (req.query.op) {
       case '#prev':
         client.previous();
@@ -96,9 +99,9 @@ router.get('/music', function(req, res) {
         break;
       }
   });
-  
+
   res.send({ status: 'OK' });
-  
+
 });
 
 module.exports = router;

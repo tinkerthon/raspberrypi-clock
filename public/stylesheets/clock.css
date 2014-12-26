@@ -10,14 +10,30 @@ body {
   position: relative;
 }
 #menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  font-size: 20px;
+  font-weight: bold;
+  z-index: 1;
+}
+#menu button {
+  float: right;
+  padding: 8px 10px;
+  background-color: #000;
+  color: #FFF;
+  border: none;
+}
+#menu ul {
+  display: none;
+  float: left;
   padding: 0;
   list-style-type: none;
-  float: right;
   background-color: #EEE;
-  border-left: solid 1px red;
-  height: 230px;
-  font-size: 2em;
-  font-weight: bold;
+}
+#menu li {
+  float: left;
 }
 #menu li a {
   padding: 8px 10px;
@@ -60,6 +76,7 @@ input[type="number"] {
 
 .row {
   margin-left: 20px;
+  margin-right: 70px;
 }
 
 a.color {
