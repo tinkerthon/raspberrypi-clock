@@ -107,12 +107,12 @@ router.get('/music', function(req, res) {
 router.get('/ip', function(req, res) {
   var os = require('os');
   var ifaces = os.networkInterfaces();
+  var addr = [];
   for (var dev in ifaces) {
     var alias = 0;
-    var addr = [];
     ifaces[dev].forEach(function(details){
       if (details.family == 'IPv4' && details.internal === false) {
-        addr.push(dev + (alias ? ':' + alias : '') + details.address);
+        addr.push({dev: dev + (alias ? ':' + alias : ''), ip: details.address});
         ++alias;
       }
     });

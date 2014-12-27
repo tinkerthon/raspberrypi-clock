@@ -18,6 +18,7 @@ jQuery(function ($) {
 
         $('section').addClass('hidden');
         $(href).removeClass('hidden');
+        $(href).trigger('shown');
     }
 
     // every 1s
@@ -81,6 +82,17 @@ jQuery(function ($) {
       $.get('/music', {
         op: $(this).attr('href')
       });
+    });
+
+    $('#setup').on('shown', function () {
+        $.get('/ip')
+            .done(function (data) {
+                var text = [];
+                $.each(data.addr, function () {
+                    text.push(this.ip);
+                });
+                $('#ip').text(text.join(', '));
+            });
     });
 });
 
