@@ -1,0 +1,19 @@
+---
+layout: default
+---
+{% if page.title %}
+    <div class="blog-header">
+        <h1 class="blog-title">{{ page.title }}</h1>
+
+        {% if page.lead %}
+            <p class="lead">{{ page.lead }}</p>
+        {% endif %}
+    </div>
+{% endif %}
+
+{% include tinkerthon/teaser.html %}
+
+<div id="content">{{ content }}</div>
+
+{% include tinkerthon/gallery.html %}
+{% include tinkerthon/disqus.html %}

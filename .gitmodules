@@ -1,3 +1,3 @@
-[submodule ".externals/tinkerthon"]
-	path = .externals/tinkerthon
-	url = git@github.com:tinkerthon/tinkerthon.github.io.git
+[submodule "externals/tinkerthon"]
+	path = externals/tinkerthon
+	url = https://github.com/tinkerthon/raspberrypi-clock.git
